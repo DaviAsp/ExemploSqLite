@@ -15,6 +15,9 @@ public class DBMySongs extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE genero( gen_id INTEGER PRIMARY KEY AUTOINCREMENT, gen_nome VARCHAR (15));");
+        db.execSQL("insert into genero values (null, 'sertanejo')");
+        db.execSQL("insert into genero values (null, 'rock')");
+
 
         db.execSQL("CREATE TABLE musica " +
            "(mus_id  INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -22,6 +25,9 @@ public class DBMySongs extends SQLiteOpenHelper {
            "mus_interprete VARCHAR (30), " +
            "mus_genero INTEGER REFERENCES genero (gen_id), " +
            "mus_duracao NUMERIC (4, 1) );");
+        db.execSQL("insert into musica values (null,1970,'Stairway to heaven','led Zepellin',2,11)");
+        db.execSQL("insert into musica values (null,1970,'Bohemian Rapsody','Queen',2,6)");
+        db.execSQL("insert into musica values (null,1970,'Boate Azul','Trio Parada Dura',1,5)");
      }
 
     @Override
